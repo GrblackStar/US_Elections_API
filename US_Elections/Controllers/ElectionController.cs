@@ -1,6 +1,7 @@
 ﻿namespace US_Elections.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
+    using US_Elections.Models;
     using US_Elections.Services;
 
     [Route("api/[controller]")]
@@ -16,17 +17,17 @@
 
         // Endpoint to get all election years
         [HttpGet("years")]
-        public IActionResult GetAllYears()
+        public ActionResult<IEnumerable<int>> GetAllYears()
         {
-            var years = _service.GetAllYears();
+            IEnumerable<int> years = _service.GetAllYears();
             return Ok(years);
         }
 
         // Endpoint to get election data by year
         [HttpGet("year/{year}")]
-        public IActionResult GetElectionByYear(int year)
+        public ActionResult<Election> GetElectionByYear(int year)
         {
-            var election = _service.GetElectionByYear(year);
+            Election election = _service.GetElectionByYear(year);
             if (election == null)
             {
                 return NotFound();
@@ -36,17 +37,17 @@
 
         // Endpoint to get all states
         [HttpGet("states")]
-        public IActionResult GetAllStates()
+        public ActionResult<IEnumerable<string>> GetAllStates()
         {
-            var states = _service.GetAllStates();
+            IEnumerable<string> states = _service.GetAllStates();
             return Ok(states);
         }
 
         // Endpoint to get state information by abbreviation
         [HttpGet("state/{abbreviation}")]
-        public IActionResult GetStateByAbbreviation(string abbreviation)
+        public ActionResult<State> GetStateByAbbreviation(string abbreviation)
         {
-            var state = _service.GetStateByAbbreviation(abbreviation);
+            State state = _service.GetStateByAbbreviation(abbreviation);
             if (state == null)
             {
                 return NotFound();
