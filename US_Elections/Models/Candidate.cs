@@ -8,5 +8,6 @@
         public string TermStart { get; set; }
         public string TermEnd { get; set; }
         public string Image { get; set; }
+        public string ImageFull { get; set; }
     }
 }

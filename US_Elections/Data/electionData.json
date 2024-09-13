@@ -306,7 +306,7 @@
             "Party": "Republican",
             "TermStart": "",
             "TermEnd": "",
-            "Image": ""
+            "Image": "/Images/JohnMcCain.jpg"
          }
       ],
       "States": [
@@ -381,7 +381,7 @@
             "Party": "Democrat",
             "TermStart": "",
             "TermEnd": "",
-            "Image": ""
+            "Image": "/Images/JohnKerry.jpg"
          }
       ],
       "States": [
@@ -448,7 +448,7 @@
             "Party": "Democrat",
             "TermStart": "",
             "TermEnd": "",
-            "Image": ""
+            "Image": "/Images/AlGore.jpg"
          },
          {
             "ID": 2,
@@ -539,7 +539,7 @@
             "Party": "Republican",
             "TermStart": "",
             "TermEnd": "",
-            "Image": ""
+            "Image": "/Images/RobertDole.jpg"
          },
          {
             "ID": 3,
@@ -618,11 +618,11 @@
          },
          {
             "ID": 2,
-            "Name": "George H. Bush",
+            "Name": "George H. W. Bush",
             "Party": "Republican",
             "TermStart": "",
             "TermEnd": "",
-            "Image": ""
+            "Image": "/Images/GeorgeHWBush.jpg"
          },
          {
             "ID": 3,
@@ -693,11 +693,11 @@
       "Candidates": [
          {
             "ID": 1,
-            "Name": "George H. Bush",
+            "Name": "George H. W. Bush",
             "Party": "Republican",
             "TermStart": "01/20/1989",
             "TermEnd": "01/20/1993",
-            "Image": "/Images/41GeorgeHWBush.jpg"
+            "Image": "/Images/GeorgeHWBush.jpg"
          },
          {
             "ID": 2,
@@ -705,7 +705,7 @@
             "Party": "Democrat",
             "TermStart": "",
             "TermEnd": "",
-            "Image": ""
+            "Image": "/Images/MichaelDukakis.jpg"
          }
       ],
       "States": [
@@ -780,7 +780,7 @@
             "Party": "Democrat",
             "TermStart": "",
             "TermEnd": "",
-            "Image": ""
+            "Image": "/Images/WalterMondale.jpg"
          }
       ],
       "States": [
@@ -855,7 +855,7 @@
             "Party": "Democrat",
             "TermStart": "",
             "TermEnd": "",
-            "Image": ""
+            "Image": "/Images/JimmyCarterPortrait.jpg"
          },
          {
             "ID": 3,
@@ -930,7 +930,7 @@
             "Party": "Democrat",
             "TermStart": "01/20/1977",
             "TermEnd": "01/20/1981",
-            "Image": "/Images/39JimmyCarter.jpg"
+            "Image": "/Images/JimmyCarterPortrait.jpg.jpg"
          },
          {
             "ID": 2,
@@ -938,7 +938,7 @@
             "Party": "Republican",
             "TermStart": "",
             "TermEnd": "",
-            "Image": ""
+            "Image": "/Images/GeraldFord.jpg"
          }
       ],
       "States": [
@@ -1013,7 +1013,7 @@
             "Party": "Democrat",
             "TermStart": "",
             "TermEnd": "",
-            "Image": ""
+            "Image": "/Images/GeorgeMcGovern.jpg"
          }
       ],
       "States": [
@@ -1088,7 +1088,7 @@
             "Party": "Democrat",
             "TermStart": "",
             "TermEnd": "",
-            "Image": ""
+            "Image": "/Images/HubertHumphrey.jpg"
          },
          {
             "ID": 3,
@@ -1171,7 +1171,7 @@
             "Party": "Republican",
             "TermStart": "",
             "TermEnd": "",
-            "Image": ""
+            "Image": "/Images/BarryGoldwater.jpg"
          }
       ],
       "States": [
@@ -1246,7 +1246,7 @@
             "Party": "Republican",
             "TermStart": "",
             "TermEnd": "",
-            "Image": ""
+            "Image": "/Images/RichardNixon.jpg"
          }
       ],
       "States": [
@@ -1321,7 +1321,7 @@
             "Party": "Democrat",
             "TermStart": "",
             "TermEnd": "",
-            "Image": ""
+            "Image": "/Images/AdlaiStevenson.jpg"
          }
       ],
       "States": [
@@ -1396,7 +1396,7 @@
             "Party": "Democrat",
             "TermStart": "",
             "TermEnd": "",
-            "Image": ""
+            "Image": "/Images/AdlaiStevenson.jpg"
          }
       ],
       "States": [
@@ -1467,11 +1467,11 @@
          },
          {
             "ID": 2,
-            "Name": "Thomas Dewey",
+            "Name": "Thomas E. Dewey",
             "Party": "Republican",
             "TermStart": "",
             "TermEnd": "",
-            "Image": ""
+            "Image": "/Images/ThomasDewey.jpg"
          },
          {
             "ID": 3,
@@ -1558,11 +1558,11 @@
          },
          {
             "ID": 2,
-            "Name": "Thomas Dewey",
+            "Name": "Thomas E. Dewey",
             "Party": "Republican",
             "TermStart": "",
             "TermEnd": "",
-            "Image": ""
+            "Image": "/Images/ThomasDewey.jpg"
          }
       ],
       "States": [
@@ -1637,7 +1637,7 @@
             "Party": "Republican",
             "TermStart": "",
             "TermEnd": "",
-            "Image": ""
+            "Image": "/Images/WendellWillkie.jpg"
          }
       ],
       "States": [

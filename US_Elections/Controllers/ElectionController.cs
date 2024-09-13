@@ -29,9 +29,14 @@
         {
             Election election = _service.GetElectionByYear(year);
             if (election == null)
-            {
                 return NotFound();
+
+            List<Candidate> candidates = election.Candidates;
+            foreach (var candidate in candidates)
+            {
+                candidate.ImageFull = $"{Request.Scheme}://{Request.Host}{candidate.Image}";
             }
+
             return Ok(election);
         }
 
