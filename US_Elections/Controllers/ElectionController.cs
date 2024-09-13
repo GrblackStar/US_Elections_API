@@ -9,13 +9,15 @@
     public class ElectionController : ControllerBase
     {
         private readonly ElectionDataService _service;
+        private StateService _stateService;
 
         public ElectionController()
         {
             _service = new ElectionDataService();
+            _stateService = new StateService();
         }
 
-        // Endpoint to get all election years
+        // get all election years
         [HttpGet("years")]
         public ActionResult<IEnumerable<int>> GetAllYears()
         {
@@ -23,7 +25,7 @@
             return Ok(years);
         }
 
-        // Endpoint to get election data by year
+        // get election data by year
         [HttpGet("year/{year}")]
         public ActionResult<Election> GetElectionByYear(int year)
         {
@@ -37,18 +39,24 @@
                 candidate.ImageFull = $"{Request.Scheme}://{Request.Host}{candidate.Image}";
             }
 
+            List<State> states = election.States;
+            foreach (var state in states)
+            {
+                state.StateName = _stateService.AbbreviationToName(state.S);
+            }
+
             return Ok(election);
         }
 
-        // Endpoint to get all states
-        [HttpGet("states")]
+        // get all states
+        [HttpGet("states-abbreviation")]
         public ActionResult<IEnumerable<string>> GetAllStates()
         {
             IEnumerable<string> states = _service.GetAllStates();
             return Ok(states);
         }
 
-        // Endpoint to get state information by abbreviation
+        // get state information by abbreviation
         [HttpGet("state/{abbreviation}")]
         public ActionResult<State> GetStateByAbbreviation(string abbreviation)
         {
@@ -57,7 +65,34 @@
             {
                 return NotFound();
             }
+            state.StateName = _stateService.AbbreviationToName(state.S);
             return Ok(state);
+        }
+
+        // get the Democratic candidate by year
+        [HttpGet("democratic-candidate/{year}")]
+        public ActionResult<Candidate> GetDemocraticCandidateByYear(int year)
+        {
+            Candidate candidate = _service.GetCandidateByYearAndParty(year, "Democrat");
+            if (candidate == null)
+            {
+                return NotFound();
+            }
+            candidate.ImageFull = $"{Request.Scheme}://{Request.Host}{candidate.Image}";
+            return Ok(candidate);
+        }
+
+        // get the Republican candidate by year
+        [HttpGet("republican-candidate/{year}")]
+        public ActionResult<Candidate> GetRepublicanCandidateByYear(int year)
+        {
+            Candidate candidate = _service.GetCandidateByYearAndParty(year, "Republican");
+            if (candidate == null)
+            {
+                return NotFound();
+            }
+            candidate.ImageFull = $"{Request.Scheme}://{Request.Host}{candidate.Image}";
+            return Ok(candidate);
         }
     }
 }

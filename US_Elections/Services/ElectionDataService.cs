@@ -24,5 +24,11 @@
 
         public State GetStateByAbbreviation(string abbreviation) =>
             _elections.SelectMany(e => e.States).FirstOrDefault(s => s.S.Equals(abbreviation, StringComparison.OrdinalIgnoreCase));
+
+        public Candidate GetCandidateByYearAndParty(int year, string party)
+        {
+            Election election = GetElectionByYear(year);
+            return election?.Candidates.FirstOrDefault(c => c.Party.Equals(party, StringComparison.OrdinalIgnoreCase));
+        }
     }
 }
