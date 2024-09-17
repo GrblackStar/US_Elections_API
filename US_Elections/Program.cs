@@ -25,6 +25,7 @@ namespace US_Elections
             }
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
             app.UseAuthorization();
             app.MapControllers();
             app.Run();
