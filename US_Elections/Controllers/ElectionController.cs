@@ -94,5 +94,112 @@
             candidate.ImageFull = $"{Request.Scheme}://{Request.Host}{candidate.Image}";
             return Ok(candidate);
         }
+
+        // Electoral votes by year as percentage
+        [HttpGet("electoral-votes/{year}")]
+        public ActionResult<IEnumerable<VoteResult>> GetElectoralVotesByYearForChart(int year)
+        {
+            (double Democratic, double Republican, double Other) voteResult = _service.GetElectoralVotesByYear(year);
+
+            var candidateVoteResults = new List<VoteResult>();
+
+            candidateVoteResults.Add(new VoteResult
+            {
+                ResultAsNumber = voteResult.Democratic,
+                ResultAsString = voteResult.Democratic.ToString()
+            });
+            candidateVoteResults.Add(new VoteResult
+            {
+                ResultAsNumber = voteResult.Republican,
+                ResultAsString = voteResult.Republican.ToString()
+            });
+            candidateVoteResults.Add(new VoteResult
+            {
+                ResultAsNumber = voteResult.Other,
+                ResultAsString = voteResult.Other.ToString()
+            });
+
+            return Ok(candidateVoteResults);
+        }
+
+        // Popular votes by year as percentage
+        [HttpGet("popular-votes/{year}")]
+        public ActionResult<IEnumerable<VoteResult>> GetPopularVotesByYear(int year)
+        {
+            (double Democratic, double Republican, double Other) voteResult = _service.GetPopularVotesByYear(year);
+
+            var candidateVoteResults = new List<VoteResult>();
+
+            candidateVoteResults.Add(new VoteResult
+            {
+                ResultAsNumber = voteResult.Democratic,
+                ResultAsString = voteResult.Democratic.ToString()
+            });
+            candidateVoteResults.Add(new VoteResult
+            {
+                ResultAsNumber = voteResult.Republican,
+                ResultAsString = voteResult.Republican.ToString()
+            });
+            candidateVoteResults.Add(new VoteResult
+            {
+                ResultAsNumber = voteResult.Other,
+                ResultAsString = voteResult.Other.ToString()
+            });
+
+            return Ok(candidateVoteResults);
+        }
+
+        // Electoral votes by year and party (number)
+        [HttpGet("electoral-votes/{year}/{party}")]
+        public ActionResult<VoteCountResult> GetElectoralVotesByYearAndParty(int year, string party)
+        {
+            int votes = _service.GetElectoralVotesByYearAndParty(year, party);
+
+            var voteCountResult = new VoteCountResult
+            {
+                Votes = votes
+            };
+
+            return Ok(voteCountResult);
+        }
+
+        // Popular votes by year and party (number)
+        [HttpGet("popular-votes/{year}/{party}")]
+        public ActionResult<VoteCountResult> GetPopularVotesByYearAndParty(int year, string party)
+        {
+            int votes = _service.GetPopularVotesByYearAndParty(year, party);
+
+            var voteCountResult = new VoteCountResult
+            {
+                Votes = votes
+            };
+
+            return Ok(voteCountResult);
+        }
+
+        // gets the votes in 3 categories (democrat, republican, other) by state
+        [HttpGet("popular-votes/{year}/by-state")]
+        public ActionResult<IEnumerable<StateVoteResult>> GetPopularVotesByStateForYear(int year)
+        {
+            var results = _service.GetPopularVotesByStateForYear(year);
+            if (!results.Any())
+            {
+                return NotFound();
+            }
+
+            return Ok(results);
+        }
+
+        [HttpGet("votes/{year}/by-candidate")]
+        public ActionResult<IEnumerable<CandidateVoteResult>> GetVotesByCandidateForYear(int year)
+        {
+            var results = _service.GetVotesByCandidateForYear(year);
+            if (!results.Any())
+            {
+                return NotFound();
+            }
+
+            return Ok(results);
+        }
     }
 }
